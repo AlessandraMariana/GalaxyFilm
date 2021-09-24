@@ -7,10 +7,8 @@ public class Filme {
 		@SuppressWarnings("unused")
 		private String titulo;
 		private String descricao;
-		private String genero;
-		private double duracao;
-		private double preco;
-		private boolean onLine;
+		private static String genero;
+		private static double duracao;
 
 		public Filme() {
 
@@ -20,8 +18,6 @@ public class Filme {
 			this.descricao = descricao;
 			this.setGenero(genero);
 			this.setDuracao(duracao);
-			this.preco = preco;
-			this.onLine = onLine;
 		}
 
 		public Filme(int idFilme,String titulo,String descricao,String genero, double duracao,double preco, boolean onLine)   {
@@ -29,8 +25,6 @@ public class Filme {
 			this.descricao = descricao;
 			this.setGenero(genero);
 			this.setDuracao(duracao);
-			this.preco = preco;
-			this.onLine = onLine;
 		}
 
 		public int getIdFilme() {
@@ -56,39 +50,33 @@ public class Filme {
 			this.descricao = descricao;
 		}
 
-		public String getGenero() {
+		public static String getGenero() {
 			return genero;
 		}
 
 		public void setGenero(String genero) {
-			this.genero = genero;
+			Filme.genero = genero;
 		}
 		
-		public double getDuracao() {
+		public static double getDuracao() {
 			return duracao;
 		}
 
 		public void setDuracao(double duracao) {
-			this.duracao = duracao;
-		}
-
-		public double getPreco() {
-			return preco;
-		}
-
-		public void setPreco(double preco) {
-			this.preco = preco;
-		}
-
-		public boolean isOnLine() {
-			return onLine;
-		}
-
-		public void setOnLine(boolean onLine) {
-			this.onLine = onLine;
+			Filme.duracao = duracao;
 		}
 
 		public static int getdescricao() {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+
+		public void setQuantidade(int int1) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public int getQuantidade() {
 			// TODO Auto-generated method stub
 			return 0;
 		}

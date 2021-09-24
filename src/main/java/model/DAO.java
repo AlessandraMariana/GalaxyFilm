@@ -21,8 +21,6 @@ public class DAO {
 			pStatement.setInt(2, Filme.getdescricao());
 			pStatement.setString(3, Filme.getGenero());
 			pStatement.setDouble(4, Filme.getDuracao());
-			pStatement.setDouble(5, Filme.getPreco());
-			pStatement.setBoolean(4, Filme.isOnLine());
 			pStatement.execute();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -48,22 +46,20 @@ public class DAO {
 		ResultSet rs = null;
 		Connection conn = null;
 		PreparedStatement pStatement = null;
-		Produto produto = null;
-		ArrayList<Produto> produtos = null;
+		Filme produto = null;
+		ArrayList<Filme> Filme = null;
 		try {
 			conn = new MySqlConnection().getConnection();
 			pStatement = conn.prepareStatement(sql);
 			rs = pStatement.executeQuery();
 			if (rs != null) {
-				produtos = new ArrayList<Produto>();
+				Filme = new ArrayList<Filme>();
 				while (rs.next()) {
-					produto = new Produto();
-					produto.setIdProduto(rs.getInt("idProduto"));
-					produto.setDescricao(rs.getString("descricao"));
+					produto = new Filme();
+					produto.setIdFilme(rs.getInt("idFilme"));
+					produto.setDescricao(rs.getString("Filme"));
 					produto.setQuantidade(rs.getInt("quantidade"));
-					produto.setPreco(rs.getDouble("preco"));
-					produto.setOnLine(rs.getBoolean("onLine"));
-					produtos.add(produto);
+					Filme.add(produto);
 				}
 			}
 
@@ -84,7 +80,7 @@ public class DAO {
 				e2.printStackTrace();
 			}
 		}
-		return produtos;
+		return Filme;
 	}
 
 	public void ExcluirFilme(int idProduto, int idFilme) {
@@ -115,7 +111,7 @@ public class DAO {
 		}
 	}
 
-	public void AlterarFilme(Produto produto) {
+	public void AlterarFilme(Filme produto) {
 		String sql = "UPDATE PRODUTO SET descricao = ?, quantidade = ?, preco = ?, onLine = ? WHERE idProduto = ?";
 		PreparedStatement pStatement = null;
 		Connection conn = null;
@@ -124,9 +120,7 @@ public class DAO {
 			pStatement = conn.prepareStatement(sql);
 			pStatement.setString(1, produto.getDescricao());
 			pStatement.setInt(2, produto.getQuantidade());
-			pStatement.setDouble(3, produto.getPreco());
-			pStatement.setBoolean(4, produto.isOnLine());
-			pStatement.setInt(5, produto.getIdProduto());
+			pStatement.setInt(5, produto.getIdFilme());
 			pStatement.execute();
 		} catch (Exception e) {
 			e.printStackTrace();

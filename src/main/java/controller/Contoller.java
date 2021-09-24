@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Contoller
+ * Servlet implementation class Controller
  */
 @WebServlet(urlPatterns={"/Contoller","/main"})
 public class Contoller extends HttpServlet {
